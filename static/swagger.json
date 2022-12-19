@@ -1,0 +1,1114 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "description": "",
+    "version": "v0.01",
+    "title": "API for online commercial",
+    "contact": {
+      "name": "Mikhail",
+      "email": "example@mail.com"
+    }
+  },
+  "servers": [
+    {
+      "url": "/rest"
+    }
+  ],
+  "tags": [
+    {
+      "name": "main",
+      "description": ""
+    }
+  ],
+  "paths": {
+    "/list": {
+      "post": {
+        "tags": ["main"],
+        "summary": "Return objects",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "requestBody": {
+          "description": "query",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/QueryBody"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/get": {
+      "post": {
+        "tags": [
+          "main"
+        ],
+        "summary": "Return object by id",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "requestBody": {
+          "description": "query",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/QueryBodyForGet"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/update": {
+      "post": {
+        "tags": [
+          "main"
+        ],
+        "summary": "Insert or update object",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "requestBody": {
+          "description": "query",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/QueryBodyForUpdate"
+              }
+            }
+          }
+        }
+      }
+  },
+    "/delete": {
+      "post": {
+        "tags": ["main"],
+        "summary": "Remove object by id",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "requestBody": {
+          "description": "query",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/QueryBodyForGet"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/get_size/{table_name}": {
+      "get": {
+        "tags": ["main"],
+        "summary": "Get size",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "parameters": [
+        {
+          "name": "table_name",
+          "in": "path",
+          "required": true,
+          "description": "",
+          "schema": {
+            "type": "string"
+          }
+        }
+      ]
+      }
+    },
+
+    "/categories/get_by_name/{input_name}": {
+      "get": {
+        "tags": ["main"],
+        "summary": "Search in \"categories\"",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "parameters": [
+        {
+          "name": "input_name",
+          "in": "path",
+          "required": true,
+          "description": "",
+          "schema": {
+            "type": "string"
+          }
+        }
+      ]
+      }
+    },
+    "/categories/search_by_name/{input_name}": {
+      "get": {
+        "tags": ["main"],
+        "summary": "Partial search in \"categories\"",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "parameters": [
+        {
+          "name": "input_name",
+          "in": "path",
+          "required": true,
+          "description": "",
+          "schema": {
+            "type": "string"
+          }
+        }
+      ]
+      }
+    },
+
+    "/vendors/get_by_name/{input_name}": {
+      "get": {
+        "tags": ["main"],
+        "summary": "Search in \"vendors\"",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "parameters": [
+        {
+          "name": "input_name",
+          "in": "path",
+          "required": true,
+          "description": "",
+          "schema": {
+            "type": "string"
+          }
+        }
+      ]
+      }
+    },
+    "/vendors/search_by_name/{input_name}": {
+      "get": {
+        "tags": ["main"],
+        "summary": "Partial search in \"vendors\"",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "parameters": [
+        {
+          "name": "input_name",
+          "in": "path",
+          "required": true,
+          "description": "",
+          "schema": {
+            "type": "string"
+          }
+        }
+      ]
+      }
+    },
+
+    "/products/search_by_category_id/{input}": {
+      "get": {
+        "tags": ["main"],
+        "summary": "Search by \"category_id\" in \"products\"",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "parameters": [
+        {
+          "name": "input",
+          "in": "path",
+          "required": true,
+          "description": "",
+          "schema": {
+            "type": "string"
+          }
+        }
+      ]
+      }
+    },
+    "/products/search_by_vendor_id/{input}": {
+      "get": {
+        "tags": ["main"],
+        "summary": "Search by \"vendor_id\" in \"products\"",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "parameters": [
+        {
+          "name": "input",
+          "in": "path",
+          "required": true,
+          "description": "",
+          "schema": {
+            "type": "string"
+          }
+        }
+      ]
+      }
+    },
+    "/products/search_by_model/{input}": {
+      "get": {
+        "tags": ["main"],
+        "summary": "Search by \"model\" in \"products\"",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "parameters": [
+        {
+          "name": "input",
+          "in": "path",
+          "required": true,
+          "description": "",
+          "schema": {
+            "type": "string"
+          }
+        }
+      ]
+      }
+    },
+    "/products/search_by_specs/{input}": {
+      "get": {
+        "tags": ["main"],
+        "summary": "Search by \"specs\" in \"products\"",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "parameters": [
+        {
+          "name": "input",
+          "in": "path",
+          "required": true,
+          "description": "",
+          "schema": {
+            "type": "string"
+          }
+        }
+      ]
+      }
+    },
+
+    "/stores/get_by_email/{input_email}": {
+      "get": {
+        "tags": ["main"],
+        "summary": "Search by \"email\" in \"stores\"",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "parameters": [
+        {
+          "name": "input_email",
+          "in": "path",
+          "required": true,
+          "description": "",
+          "schema": {
+            "type": "string"
+          }
+        }
+      ]
+      }
+    },
+    "/stores/search_by_email/{input_email}": {
+      "get": {
+        "tags": ["main"],
+        "summary": "Partial search by \"email\" in \"stores\"",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "parameters": [
+        {
+          "name": "input_email",
+          "in": "path",
+          "required": true,
+          "description": "",
+          "schema": {
+            "type": "string"
+          }
+        }
+      ]
+      }
+    },
+    "/stores/search_by_paid_delivery/{input_paid_delivery}": {
+      "get": {
+        "tags": ["main"],
+        "summary": "Partial search by \"paid_delivery\" in \"stores\"",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "parameters": [
+        {
+          "name": "input_paid_delivery",
+          "in": "path",
+          "required": true,
+          "description": "",
+          "schema": {
+            "type": "boolean"
+          }
+        }
+      ]
+      }
+    },
+
+    "/clients/search_by_firstname/{input}": {
+      "get": {
+        "tags": ["main"],
+        "summary": "Partial search by \"firstname\" in \"clients\"",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "parameters": [
+        {
+          "name": "input",
+          "in": "path",
+          "required": true,
+          "description": "",
+          "schema": {
+            "type": "string"
+          }
+        }
+      ]
+      }
+    },
+    "/clients/search_by_lastname/{input}": {
+      "get": {
+        "tags": ["main"],
+        "summary": "Partial search by \"lastname\" in \"clients\"",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "parameters": [
+        {
+          "name": "input",
+          "in": "path",
+          "required": true,
+          "description": "",
+          "schema": {
+            "type": "string"
+          }
+        }
+      ]
+      }
+    },
+    "/clients/search_by_email/{input}": {
+      "get": {
+        "tags": ["main"],
+        "summary": "Partial search by \"email\" in \"clients\"",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "parameters": [
+        {
+          "name": "input_paid_delivery",
+          "in": "path",
+          "required": true,
+          "description": "",
+          "schema": {
+            "type": "string"
+          }
+        }
+      ]
+      }
+    },
+    "/clients/search_by_contact_number/{input}": {
+      "get": {
+        "tags": ["main"],
+        "summary": "Search by \"contact_number\" in \"clients\"",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "parameters": [
+        {
+          "name": "input",
+          "in": "path",
+          "required": true,
+          "description": "",
+          "schema": {
+            "type": "string"
+          }
+        }
+      ]
+      }
+    },
+
+    "/orders/search_by_client_id/{input}": {
+      "get": {
+        "tags": ["main"],
+        "summary": "Search by \"client_id\" in \"orders\"",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "parameters": [
+        {
+          "name": "input",
+          "in": "path",
+          "required": true,
+          "description": "",
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ]
+      }
+    },
+    "/orders/search_by_order_id/{input}": {
+      "get": {
+        "tags": ["main"],
+        "summary": "Search by \"store_id\" in \"orders\"",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "parameters": [
+        {
+          "name": "input",
+          "in": "path",
+          "required": true,
+          "description": "",
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ]
+      }
+    },
+    "/orders/search_by_date/{date}": {
+      "get": {
+        "tags": ["main"],
+        "summary": "Search by \"date\" in \"orders\"",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "parameters": [
+        {
+          "name": "date",
+          "in": "path",
+          "required": true,
+          "description": "Format: (YYYY-MM-DD)",
+          "schema": {
+            "type": "string"
+          }
+        }
+      ]
+      }
+    },
+    "/orders/search_by_time/{left_value}/{right_value}": {
+      "get": {
+        "tags": ["main"],
+        "summary": "Search by \"time\" in \"orders\"",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "parameters": [
+        {
+          "name": "left_value",
+          "in": "path",
+          "required": true,
+          "description": "Format: (HH:MM:SS)",
+          "schema": {
+            "type": "string"
+          }
+        },
+          {
+          "name": "right_value",
+          "in": "path",
+          "required": true,
+          "description": "Format: (HH:MM:SS)",
+          "schema": {
+            "type": "string"
+          }
+        }
+
+      ]
+      }
+    },
+    "/orders/search_by_confirmation/{input_confirmation}": {
+      "get": {
+        "tags": ["main"],
+        "summary": "Search by \"confirmation\" in \"orders\"",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "parameters": [
+        {
+          "name": "input",
+          "in": "path",
+          "required": true,
+          "description": "",
+          "schema": {
+            "type": "boolean"
+          }
+        }
+      ]
+      }
+    },
+
+    "/couriers/search_by_firstname/{input}": {
+      "get": {
+        "tags": ["main"],
+        "summary": "Partial search by \"firstname\" in \"couriers\"",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "parameters": [
+        {
+          "name": "input",
+          "in": "path",
+          "required": true,
+          "description": "",
+          "schema": {
+            "type": "string"
+          }
+        }
+      ]
+      }
+    },
+    "/couriers/search_by_lastname/{input}": {
+      "get": {
+        "tags": ["main"],
+        "summary": "Partial search by \"lastname\" in \"couriers\"",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "parameters": [
+        {
+          "name": "input",
+          "in": "path",
+          "required": true,
+          "description": "",
+          "schema": {
+            "type": "string"
+          }
+        }
+      ]
+      }
+    },
+    "/couriers/search_by_email/{input}": {
+      "get": {
+        "tags": ["main"],
+        "summary": "Partial search by \"email\" in \"couriers\"",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "parameters": [
+        {
+          "name": "input_paid_delivery",
+          "in": "path",
+          "required": true,
+          "description": "",
+          "schema": {
+            "type": "string"
+          }
+        }
+      ]
+      }
+    },
+    "/couriers/search_by_contact_number/{input}": {
+      "get": {
+        "tags": ["main"],
+        "summary": "Search by \"contact_number\" in \"couriers\"",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "parameters": [
+        {
+          "name": "input",
+          "in": "path",
+          "required": true,
+          "description": "",
+          "schema": {
+            "type": "string"
+          }
+        }
+      ]
+      }
+    },
+
+    "/delivery/search_by_courier_id/{input}": {
+      "get": {
+        "tags": ["main"],
+        "summary": "Search by \"courier_id\" in \"delivery\"",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "parameters": [
+        {
+          "name": "input",
+          "in": "path",
+          "required": true,
+          "description": "",
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ]
+      }
+    },
+    "/delivery/search_by_order_id/{input}": {
+      "get": {
+        "tags": ["main"],
+        "summary": "Search by \"order_id\" in \"delivery\"",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "parameters": [
+        {
+          "name": "input",
+          "in": "path",
+          "required": true,
+          "description": "",
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ]
+      }
+    },
+    "/delivery/search_by_date/{date}": {
+      "get": {
+        "tags": ["main"],
+        "summary": "Search by \"date\" in \"delivery\"",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "parameters": [
+        {
+          "name": "date",
+          "in": "path",
+          "required": true,
+          "description": "Format: (YYYY-MM-DD)",
+          "schema": {
+            "type": "string"
+          }
+        }
+      ]
+      }
+    },
+    "/delivery/search_by_time/{left_value}/{right_value}": {
+      "get": {
+        "tags": ["main"],
+        "summary": "Search by \"time\" in \"delivery\"",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "parameters": [
+        {
+          "name": "left_value",
+          "in": "path",
+          "required": true,
+          "description": "Format: (HH:MM:SS)",
+          "schema": {
+            "type": "string"
+          }
+        },
+          {
+          "name": "right_value",
+          "in": "path",
+          "required": true,
+          "description": "Format: (HH:MM:SS)",
+          "schema": {
+            "type": "string"
+          }
+        }
+
+      ]
+      }
+    },
+    "/delivery/search_by_delivery_address/{input}": {
+      "get": {
+        "tags": ["main"],
+        "summary": "Search by \"confirmation\" in \"orders\"",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "parameters": [
+        {
+          "name": "input",
+          "in": "path",
+          "required": true,
+          "description": "",
+          "schema": {
+            "type": "string"
+          }
+        }
+      ]
+      }
+    },
+
+    "/shopping_cart/search_by_order_id/{input}": {
+      "get": {
+        "tags": ["main"],
+        "summary": "Search by \"order_id\" in \"shopping_cart\"",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "parameters": [
+        {
+          "name": "input",
+          "in": "path",
+          "required": true,
+          "description": "",
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ]
+      }
+    }
+  },
+
+  "components": {
+    "schemas": {
+      "id": {
+        "type": "integer"
+      },
+      "QueryBody": {
+        "type": "object",
+        "properties": {
+          "table_name": {
+            "type": "string",
+            "description": "table name",
+            "default": "vendors"
+          },
+          "offset_value": {
+            "type": "integer",
+            "description": "fetch value",
+            "default": 0
+          },
+          "limit_value": {
+            "type": "integer",
+            "description": "limit value",
+            "default": 10
+          }
+        }
+      },
+      "QueryBodyForGet": {
+        "type": "object",
+        "properties": {
+          "table_name": {
+            "type": "string",
+            "description": "table name",
+            "default": "vendors"
+          },
+          "id": {
+            "type": "integer",
+            "description": "id",
+            "default": "1"
+          }
+        }
+      },
+      "QueryBodyForUpdate": {
+        "type": "object",
+        "properties": {
+          "table_name": {
+            "type": "string",
+            "description": "table name",
+            "default": "vendors"
+          },
+          "obj": {
+            "type": "object",
+            "$ref": "#/components/schemas/VendorBody"
+          }
+        }
+      },
+      "QueryBodyForDelete": {
+        "type": "object",
+        "properties": {
+          "table_name": {
+            "type": "string",
+            "description": "table name",
+            "default": "vendors"
+          },
+          "id": {
+            "type": "integer",
+            "description": "id",
+            "default": "1"
+          }
+        }
+      },
+
+      "CategoryBody": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "if it new object must be -1"
+          },
+          "name": {
+            "type": "string",
+            "description": "not empty"
+          }
+        }
+      },
+      "VendorBody": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "if it new object must be -1",
+            "default": -1
+          },
+          "name": {
+            "type": "string",
+            "description": "not empty"
+          }
+        }
+      },
+      "ProductBody": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "if it new object must be -1"
+          },
+          "category": {
+            "type": "object",
+            "$ref": "#/components/schemas/CategoryBody"
+          },
+          "vendor": {
+            "type": "object",
+            "$ref": "#/components/schemas/VendorBody"
+          },
+          "model": {
+            "type": "string",
+            "description": "not empty"
+          },
+          "specs": {
+            "type": "string",
+            "description": ""
+          },
+          "price": {
+            "type": "integer",
+            "description": "not empty"
+          },
+          "warranty_period": {
+            "type": "integer",
+            "description": "not empty"
+          },
+          "image": {
+            "type": "string",
+            "description": ""
+          }
+        }
+      },
+
+      "ClientBody": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "if it new object must be -1"
+          },
+          "firstname": {
+            "type": "string",
+            "description": "not empty"
+          },
+          "lastname": {
+            "type": "string",
+            "description": "not empty"
+          },
+          "email": {
+            "type": "string",
+            "description": ""
+          },
+          "contact_number": {
+            "type": "string",
+            "description": "not empty"
+          }
+        }
+      },
+      "StoreBody": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "if it new object must be -1"
+          },
+          "email": {
+            "type": "string",
+            "description": "not empty"
+          },
+          "paid_delivery": {
+            "type": "boolean",
+            "description": ""
+          }
+        }
+      },
+      "OrderBody": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "if it new object must be -1"
+          },
+          "client": {
+            "type": "object",
+            "$ref": "#/components/schemas/ClientBody"
+          },
+          "store": {
+            "type": "object",
+            "$ref": "#/components/schemas/StoreBody"
+          },
+          "order_date": {
+            "type": "date",
+            "description": "not empty"
+          },
+          "order_time": {
+            "type": "time",
+            "description": "not empty"
+          },
+          "confirmation": {
+            "type": "boolean",
+            "description": "not empty"
+          }
+        }
+      },
+
+      "CourierBody": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "if it new object must be -1"
+          },
+          "firstname": {
+            "type": "string",
+            "description": "not empty"
+          },
+          "lastname": {
+            "type": "string",
+            "description": "not empty"
+          },
+          "email": {
+            "type": "string",
+            "description": ""
+          },
+          "contact_number": {
+            "type": "string",
+            "description": "not empty"
+          }
+        }
+      },
+      "DeliveryBody": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "if it new object must be -1"
+          },
+          "courier": {
+            "type": "object",
+            "$ref": "#/components/schemas/CourierBody"
+          },
+          "order": {
+            "type": "object",
+            "$ref": "#/components/schemas/OrderBody"
+          },
+          "delivery_date": {
+            "type": "date",
+            "description": "not empty"
+          },
+          "delivery_time": {
+            "type": "time",
+            "description": "not empty"
+          },
+          "delivery_address": {
+            "type": "string",
+            "description": "not empty"
+          }
+        }
+      },
+
+      "ShoppingCartBody": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "if it new object must be -1"
+          },
+          "order": {
+            "type": "object",
+            "$ref": "#/components/schemas/OrderBody"
+          },
+          "product": {
+            "type": "object",
+            "$ref": "#/components/schemas/ProductBody"
+          },
+          "amount": {
+            "type": "integer",
+            "description": "not empty"
+          }
+        }
+      }
+    }
+  }
+}
